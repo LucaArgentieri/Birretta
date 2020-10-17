@@ -1,0 +1,7 @@
+.home__search__container {
+  background-color: purple;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

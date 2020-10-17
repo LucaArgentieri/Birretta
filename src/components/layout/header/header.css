@@ -1,0 +1,19 @@
+.navbar__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar__container ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar__container a {
+    text-decoration: none;
+    color: inherit;
+}
+.navbar__container ul li {
+    margin-right: 10px;
+    margin-left: 10px;
+    list-style: none;
+}
