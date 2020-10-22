@@ -6,12 +6,14 @@ import {
     Link
   } from "react-router-dom";
 import './header.css';
-import Home from '../home/home';
-import Drinks from '../drinks/drinks';
-import Ingredients from '../ingredients/ingredients';
-import Wethinkaboutit from '../wethinkaboutit/wethinkaboutit';
+import Home from '../pages/home/home';
+import Drinks from '../pages/drinks/drinks';
+import Ingredients from '../pages/ingredients/ingredients';
+import Wethinkaboutit from '../pages/wethinkaboutit/wethinkaboutit';
+
 
 function Header() {
+
   return (
     <Router>
     <div className="Header">
