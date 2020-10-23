@@ -6,10 +6,9 @@ import PropTypes from 'prop-types'
 
 class DrinksContainer extends Component {
 
-
     render(){
-        return this.state.drinks.map((drink) => ( 
-        <DrinksComponent key={drink.id} drinkItem={drink} />)
+        return this.state.drinksItems.map((drinksItem) => ( 
+        <DrinksComponent key={drinksItem.id} drinksItem={drinksItem} />)
         )
     }
 

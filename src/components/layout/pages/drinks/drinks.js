@@ -9,32 +9,19 @@ class Drinks extends Component {
         super(props)
         this.state = {
             loading: true,
-            drinks: [
-                {   
-                    id: null,
-                    strDrink: null,
-                    strDrinkThumb: null
-                    
-                }
-            ]
+            drinksItems: []
         }
     }
-
+    // res.data
 
     componentDidMount() {
         axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic')
-            .then(res => this.setState({ drinks: res.data }))
-            console.log(this.state.drinks)
-            // .then(res => { 
-            //     console.log(res.data);
-            //     const datas = res.data
-            //     // this.setState({drink: datas.drinks[0].strDrink , loading : false})
-            //     // this.setState({img: datas.drinks[0].strDrinkThumb})
-            //     console.log(datas.drinks[0])
-            // }, error => {
-            //     console.log(error);
-            // })
-            // )
+            .then(res => 
+                this.setState({ drinksItems: res.data })
+            )
+            .then(res => console.log(this.state.drinksItems))
+
+            
 
     }
     render(){
@@ -46,7 +33,7 @@ class Drinks extends Component {
             return <p>Didn't get a drink</p>
         } else {
         return(
-            <DrinksContainer drinks={this.state.drinks} />
+            <DrinksContainer drinks={this.state.drinksItems} />
         )
     }
     }
