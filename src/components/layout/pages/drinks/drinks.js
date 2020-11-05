@@ -1,42 +1,44 @@
-import React, { Component } from 'react'
-import DrinksContainer from './drinksContainer/drinksContainer'
+import React from 'react'
+import { Component } from 'react'
 
-import axios from 'axios'
+import DrinksItem from './drinksItem/drinksItem'
 
-
-class Drinks extends Component {
+class Drinks extends Component{
     constructor(props){
         super(props)
+
         this.state = {
-            loading: true,
-            drinksItems: []
+            data: [],
+            isLoading: false
         }
     }
-    // res.data
 
     componentDidMount() {
-        axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic')
-            .then(res => 
-                this.setState({ drinksItems: res.data })
-            )
-            .then(res => console.log(this.state.drinksItems))
+        this.setState({ isLoading: true });
 
-            
-
+        fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+          .then(response => response.json())
+          .then(data => this.setState({ data: data.drinks, isLoading: false }));
     }
-    render(){
-        if (this.state.loading) {
-            return <p>loading...</p>
-        }
 
-        if (!this.state.drinks) {
-            return <p>Didn't get a drink</p>
-        } else {
+    render(){
+        const { data, isLoading } = this.state;
+        console.log(data)
+
+         
+    if (isLoading) {
+        return <p>Loading ...</p>;
+    }
+
         return(
-            <DrinksContainer drinks={this.state.drinksItems} />
+            <div>
+                {data.map((drinkProp) => 
+                    <DrinksItem key={drinkProp.idDrink} name={drinkProp.strDrink} img={drinkProp.strDrinkThumb}/>)
+                }
+            </div>
         )
     }
-    }
+
 }
 
 
