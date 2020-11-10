@@ -17,20 +17,14 @@ class Drinks extends Component {
     componentDidMount() {
         this.setState({ isLoading: true });
 
-        // fetch('https://sandbox-api.brewerydb.com/v2/beer/random/?key=' + process.env.REACT_APP_BEER_API_KEY,
-        //     {
-        //         mode: 'no-cors',
-        //     })
-        //     .then(response => response.json())
-        //     //.then(data => this.setState({ data: data.drinks, isLoading: false }));
-        //     .then(data => console.log(data))
 
         var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
             targetUrl = 'https://sandbox-api.brewerydb.com/v2/beers/?key=' + process.env.REACT_APP_BEER_API_KEY
         fetch(proxyUrl + targetUrl)
             .then(blob => blob.json())
             .then(data => {
-                console.log(data);
+                console.log(data.data)
+                this.setState({data: data.data, isLoading: false})
             })
             .catch(e => {
                 console.log(e);
@@ -49,7 +43,7 @@ class Drinks extends Component {
         return (
             <div>
                 {data.map((drinkProp) =>
-                    <DrinksItem key={drinkProp.idDrink} name={drinkProp.strDrink} img={drinkProp.strDrinkThumb} />)
+                    <DrinksItem key={drinkProp.id} name={drinkProp.name} img={drinkProp.icon}  description={drinkProp.description} />)
                 }
             </div>
         )
@@ -59,3 +53,4 @@ class Drinks extends Component {
 
 
 export default Drinks
+

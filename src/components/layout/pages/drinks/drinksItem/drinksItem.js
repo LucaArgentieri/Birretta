@@ -5,7 +5,8 @@ function drinksItem(props){
         <div>
             <a href="#">
             <h3>{props.name}</h3>
-            <img src={props.img} alt=""/>
+            <img src={props.img} alt="" />
+            <p>{props.description}</p>
             </a>
         </div>
     )
