@@ -10,7 +10,7 @@ class Drinks extends Component {
         super(props)
 
         this.state = {
-            data: [],
+            beerData: [],
             isLoading: false
         }
     }
@@ -20,8 +20,8 @@ class Drinks extends Component {
         const apiKey =  process.env.REACT_APP_BEER_API_KEY
         axios.get('https://sandbox-api.brewerydb.com/v2/beers/?key=' + apiKey)
             .then(data => {
-                console.log(data)
-                this.setState({data: data.data, isLoading: false})
+                console.log(data.data.data[0].labels)
+                this.setState({beerData: data.data.data, isLoading: false})
             })
             .catch(e => {
                 console.log(e);
@@ -30,7 +30,7 @@ class Drinks extends Component {
     }
 
     render() {
-        const { data, isLoading } = this.state;
+        const { beerData, isLoading } = this.state;
 
 
         if (isLoading) {
@@ -39,8 +39,8 @@ class Drinks extends Component {
 
         return (
             <div>
-                {data.map((drinkProp) =>
-                    <DrinksItem key={drinkProp.id} name={drinkProp.name}  description={drinkProp.description} />)
+                {beerData.map((drinkProp) =>
+                    <DrinksItem key={drinkProp.id} name={drinkProp.name} img={drinkProp.labels} description={drinkProp.description} />)
                 }
             </div>
         )
