@@ -1,5 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
+import axios from 'axios';
 
 import DrinksItem from './drinksItem/drinksItem'
 
@@ -16,14 +17,10 @@ class Drinks extends Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-
-
-        var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-            targetUrl = 'https://sandbox-api.brewerydb.com/v2/beers/?key=' + process.env.REACT_APP_BEER_API_KEY
-        fetch(proxyUrl + targetUrl)
-            .then(blob => blob.json())
+        const apiKey =  process.env.REACT_APP_BEER_API_KEY
+        axios.get('https://sandbox-api.brewerydb.com/v2/beers/?key=' + apiKey)
             .then(data => {
-                console.log(data.data)
+                console.log(data)
                 this.setState({data: data.data, isLoading: false})
             })
             .catch(e => {
@@ -43,7 +40,7 @@ class Drinks extends Component {
         return (
             <div>
                 {data.map((drinkProp) =>
-                    <DrinksItem key={drinkProp.id} name={drinkProp.name} img={drinkProp.icon}  description={drinkProp.description} />)
+                    <DrinksItem key={drinkProp.id} name={drinkProp.name}  description={drinkProp.description} />)
                 }
             </div>
         )
