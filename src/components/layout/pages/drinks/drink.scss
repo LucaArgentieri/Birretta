@@ -1,0 +1,15 @@
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.loading {
+    text-align: center;
+}
+.beersContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}

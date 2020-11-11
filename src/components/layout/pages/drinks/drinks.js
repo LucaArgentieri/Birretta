@@ -1,8 +1,11 @@
 import React from 'react'
 import { Component } from 'react'
+import InfiniteScroll from "react-infinite-scroll-component";
+
 import axios from 'axios';
 
 import DrinksItem from './drinksItem/drinksItem'
+import './drink.scss'
 
 
 class Drinks extends Component {
@@ -19,9 +22,9 @@ class Drinks extends Component {
         this.setState({ isLoading: true });
         const apiKey =  process.env.REACT_APP_BEER_API_KEY
         axios.get('https://sandbox-api.brewerydb.com/v2/beers/?key=' + apiKey)
-            .then(data => {
-                console.log(data.data.data[0].labels)
-                this.setState({beerData: data.data.data, isLoading: false})
+            .then(res => {
+                console.log(res.data.data)
+                this.setState({beerData: res.data.data, isLoading: false})
             })
             .catch(e => {
                 console.log(e);
@@ -32,16 +35,22 @@ class Drinks extends Component {
     render() {
         const { beerData, isLoading } = this.state;
 
-
         if (isLoading) {
-            return <p>Loading ...</p>;
+            return (
+                <div className="loadingContainer">
+                    <p className="loading">Loading ...</p>
+                </div>
+                )
         }
+
 
         return (
             <div>
-                {beerData.map((drinkProp) =>
-                    <DrinksItem key={drinkProp.id} name={drinkProp.name} img={drinkProp.labels} description={drinkProp.description} />)
-                }
+                <div className="beersContainer">
+                    {beerData.filter(item => item.labels).map((drinkProp) =>
+                        <DrinksItem key={drinkProp.id} name={drinkProp.name} img={drinkProp.labels.medium} />)
+                    }
+                </div>
             </div>
         )
     }
