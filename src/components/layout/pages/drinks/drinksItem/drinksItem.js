@@ -1,13 +1,13 @@
 import React from 'react'
 import './drinksItem.scss'
 
-function drinksItem(props){
+function drinksItem(props) {
 
-    return(
+    return (
         <div>
-            <a className="card__container" href="#">
-            <h3>{props.name}</h3>
-            <img src={props.img} alt="" />
+            <a className="card__container" href="g">
+                <h3>{props.name}</h3>
+                <img src={props.img} alt="" />
             </a>
         </div>
     )
