@@ -1,32 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './drink.scss'
 import DrinksItem from './drinksItem/drinksItem'
 import { useFetch } from './drinksFetch/drinksFetch'
-import InfiniteScroll from 'react-infinite-scroll-component'
-
 
 
 function Drinks() {
 
     const [page, setPage] = useState(1)
+    const [postsPerPage, setPostsPerPage] = useState(80)
 
 
-    let url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=30`
+    let url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=${postsPerPage}`
 
     const { isLoading, beerData } = useFetch(url)
 
 
-    //problema aggiornamento componente
-    // useEffect(() => {
-    //     effect
-    //     return () => {
-    //         cleanup
-    //     }
-    // }, [input])
+    const newRender = () => {
+        if (page >= 5) {
+            setPage(1)
+        } else {
+            setPage(page + 1)
 
-
-
-
+        }
+        window.scrollTo(0, 0)
+    }
 
 
     if (isLoading) {
@@ -39,23 +36,17 @@ function Drinks() {
 
     return (
         <div>
-            <div>
-                <InfiniteScroll className="beersContainer" dataLength={beerData.length} next={setPage(page + 1)} hasMore={true}>
-                    {beerData.map((product) => {
-                        return <DrinksItem key={product.id} {...product} />
-                    })
-                    }
-                </InfiniteScroll>
+            <div className="beersContainer">
+                {beerData.map((beer) => {
+                    return <DrinksItem key={beer.id} {...beer} />
+                })
+                }
 
             </div>
+            <button onClick={() => newRender()}>Next page</button>
         </div>
     )
 }
-
-
-
-
-
 
 
 
