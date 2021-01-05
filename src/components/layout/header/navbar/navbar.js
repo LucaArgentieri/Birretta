@@ -8,7 +8,7 @@ export default function navbar() {
                 <ul>
                     <li><Link to="drinks">Beers</Link></li>
                     <li><Link to="ingredients">Ingredients</Link></li>
-                    <li><Link to="wethinkaboutit">We'll think about it</Link></li>
+                    <li><Link to="wethinkaboutit">Trust us</Link></li>
                 </ul>
             </div>
         </div>

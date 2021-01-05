@@ -1,37 +1,30 @@
-import React from 'react'
-import axios from 'axios';
-
+import React, { useEffect, useState } from 'react'
 import './drink.scss'
 import DrinksItem from './drinksItem/drinksItem'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useFetch } from './drinksFetch/drinksFetch'
+import InfiniteScroll from 'react-infinite-scroll-component'
+
 
 
 function Drinks() {
 
-    const [beerData, setBeerData] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+    const [page, setPage] = useState(1)
 
-    const getData = () => {
-        //https://punkapi.com/documentation/v2
 
-        axios.get(`https://api.punkapi.com/v2/beers`)
-            .then(function (res) {
-                console.log(res.data);
-                const data = res.data
-                setBeerData(data)
-                setIsLoading(false)
-            })
-            .catch(e => {
-                console.log(e);
-                return e;
-            });
-    }
+    let url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=30`
 
-    useEffect(() => {
-        getData()
+    const { isLoading, beerData } = useFetch(url)
 
-    }, [])
+
+    //problema aggiornamento componente
+    // useEffect(() => {
+    //     effect
+    //     return () => {
+    //         cleanup
+    //     }
+    // }, [input])
+
+
 
 
 
@@ -44,14 +37,16 @@ function Drinks() {
         )
     }
 
-
-
     return (
         <div>
-            <div className="beersContainer">
-                {beerData.map((drinkProp) =>
-                    <DrinksItem key={drinkProp.id} name={drinkProp.name} img={drinkProp.image_url} />)
-                }
+            <div>
+                <InfiniteScroll className="beersContainer" dataLength={beerData.length} next={setPage(page + 1)} hasMore={true}>
+                    {beerData.map((product) => {
+                        return <DrinksItem key={product.id} {...product} />
+                    })
+                    }
+                </InfiniteScroll>
+
             </div>
         </div>
     )
