@@ -3,13 +3,10 @@ import './home.scss';
 
 function Home() {
 
-    return(
+    return (
         <div>
             <div className="home__search__container">
-                <form>
-                <input type="search"></input>
-                <button>Let's drink!</button>
-                </form>
+                <h1>Welcome in Birretta!</h1>
             </div>
         </div>
     )

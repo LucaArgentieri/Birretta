@@ -1,0 +1,42 @@
+.navbar__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  h1 {
+    color: #d96706;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul li {
+    margin-right: 10px;
+    margin-left: 10px;
+    list-style: none;
+
+    &:hover {
+      color: #d96706;
+    }
+  }
+
+  form input {
+    outline: none;
+  }
+
+  button {
+    background-color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #d96706;
+  }
+}

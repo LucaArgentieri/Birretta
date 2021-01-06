@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import './drinksItem.scss'
 
 
-const DrinksItem = ({ name, image_url }) => {
+const DrinksItem = React.memo(({ id, name, image_url }) => {
     return (
         <div>
-            <a className="card__container" href="g">
+            <div className="card__container">
                 <h3>{name}</h3>
                 <img src={image_url} alt="" />
-            </a>
+            </div>
         </div>
     )
-}
+})
 
 export default DrinksItem

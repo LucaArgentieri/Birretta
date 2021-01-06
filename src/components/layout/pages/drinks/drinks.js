@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import './drink.scss'
+import './drink.css'
 import DrinksItem from './drinksItem/drinksItem'
 import { useFetch } from './drinksFetch/drinksFetch'
+import { Link } from 'react-router-dom'
 
 
 function Drinks() {
@@ -38,15 +39,21 @@ function Drinks() {
         <div>
             <div className="beersContainer">
                 {beerData.map((beer) => {
-                    return <DrinksItem key={beer.id} {...beer} />
+                    return (
+                        <Link to={`/beers/${beer.id}`}>
+                            <DrinksItem key={beer.id} {...beer} />
+                        </Link>)
                 })
                 }
 
             </div>
-            <button onClick={() => newRender()}>Next page</button>
+            <div className="nextPage_container">
+                <button className="nextPage" onClick={() => newRender()}>Next page</button>
+            </div>
         </div>
     )
 }
+
 
 
 

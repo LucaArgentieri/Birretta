@@ -1,7 +1,24 @@
 .home__search__container {
-    background-color: purple;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../../../assets/beer.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-attachment: fixed;
+
+  h1 {
+    color: #d96706;
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  .home__search__container {
+    h1 {
+      font-size: 30px;
+    }
+  }
 }

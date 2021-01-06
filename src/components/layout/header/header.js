@@ -5,11 +5,13 @@ import {
   Route,
 } from "react-router-dom";
 import './header.css';
-import Navbar from './navbar/navbar'
+import Navbar from './navbar/navbar';
+import Footer from '../footer/footer'
 import Home from '../pages/home/home';
-import Drinks from '../pages/drinks/drinks';
-import Ingredients from '../pages/ingredients/ingredients';
-import Wethinkaboutit from '../pages/wethinkaboutit/wethinkaboutit';
+import Beers from '../pages/drinks/drinks';
+import RandomBeer from '../pages/randombeer/randombeer';
+import BeerTemplate from '../beerTemplate/beerTemplate'
+import Error from '../error/error';
 
 
 function Header() {
@@ -21,16 +23,18 @@ function Header() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/drinks">
-          <Drinks />
+        <Route path="/beers">
+          <Beers />
         </Route>
-        <Route path="/ingredients">
-          <Ingredients />
+        <Route path="/randombeer">
+          <RandomBeer />
         </Route>
-        <Route path="/wethinkaboutit">
-          <Wethinkaboutit />
+        <Route path="/beers/:id" children={<BeerTemplate />}></Route>
+        <Route path="*">
+          <Error />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }
