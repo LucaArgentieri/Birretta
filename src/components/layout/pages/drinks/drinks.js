@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './drink.css'
 import DrinksItem from './drinksItem/drinksItem'
 import { useFetch } from './drinksFetch/drinksFetch'
-import { Link } from 'react-router-dom'
 
 
 function Drinks() {
@@ -27,6 +26,7 @@ function Drinks() {
     }
 
 
+
     if (isLoading) {
         return (
             <div className="loadingContainer">
@@ -39,13 +39,11 @@ function Drinks() {
         <div>
             <div className="beersContainer">
                 {beerData.map((beer) => {
-                    return (
-                        <Link to={`/beers/${beer.id}`}>
-                            <DrinksItem key={beer.id} {...beer} />
-                        </Link>)
+                    console.log(beer.id)
+                    return <DrinksItem key={beer.id} {...beer} />
+
                 })
                 }
-
             </div>
             <div className="nextPage_container">
                 <button className="nextPage" onClick={() => newRender()}>Next page</button>

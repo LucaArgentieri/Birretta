@@ -44,5 +44,10 @@
 .nextPage_container .nextPage {
   padding: 10px 20px;
   cursor: pointer;
+  background-color: #d96706;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=drink.css.map */

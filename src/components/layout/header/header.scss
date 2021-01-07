@@ -30,6 +30,9 @@
 
   form input {
     outline: none;
+    border-radius: 10px;
+    border: 1px solid #d96706;
+    padding: 5px;
   }
 
   button {
@@ -38,5 +41,9 @@
     outline: none;
     cursor: pointer;
     color: #d96706;
+
+    &:hover {
+      color: darken(#d96706, $amount: 7);
+    }
   }
 }

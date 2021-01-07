@@ -1,15 +1,17 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import './drinksItem.scss'
+import { Link } from 'react-router-dom'
 
 
-const DrinksItem = React.memo(({ id, name, image_url }) => {
+
+const DrinksItem = (({ id, name, image_url }) => {
     return (
-        <div>
+        <Link to={`/beer/${id}`}>
             <div className="card__container">
                 <h3>{name}</h3>
                 <img src={image_url} alt="" />
             </div>
-        </div>
+        </Link>
     )
 })
 

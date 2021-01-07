@@ -10,7 +10,7 @@ import Footer from '../footer/footer'
 import Home from '../pages/home/home';
 import Beers from '../pages/drinks/drinks';
 import RandomBeer from '../pages/randombeer/randombeer';
-import BeerTemplate from '../beerTemplate/beerTemplate'
+import Beer from '../pages/beer/beer'
 import Error from '../error/error';
 
 
@@ -29,7 +29,7 @@ function Header() {
         <Route path="/randombeer">
           <RandomBeer />
         </Route>
-        <Route path="/beers/:id" children={<BeerTemplate />}></Route>
+        <Route path="/beer/:id" children={<Beer />}></Route>
         <Route path="*">
           <Error />
         </Route>

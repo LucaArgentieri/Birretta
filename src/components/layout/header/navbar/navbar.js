@@ -9,8 +9,8 @@ export default function navbar() {
             <div className="navbar__container">
                 <Link to="/"><h1><IoMdBeer size="25px" />Birretta</h1></Link>
                 <ul>
-                    <li><Link to="beers">Beers</Link></li>
-                    <li><Link to="randombeer">Random Beer</Link></li>
+                    <li><Link to="/beers">Beers</Link></li>
+                    <li><Link to="/randombeer">Random Beer</Link></li>
                     <li>
                         <form action="">
                             <input type="text" />

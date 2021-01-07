@@ -41,6 +41,9 @@
 
 .navbar__container form input {
   outline: none;
+  border-radius: 10px;
+  border: 1px solid #d96706;
+  padding: 5px;
 }
 
 .navbar__container button {
@@ -49,5 +52,9 @@
   outline: none;
   cursor: pointer;
   color: #d96706;
+}
+
+.navbar__container button:hover {
+  color: #b65705;
 }
 /*# sourceMappingURL=header.css.map */

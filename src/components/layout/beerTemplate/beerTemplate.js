@@ -3,6 +3,7 @@ import './beerTemplate.css'
 
 export default function BeerTemplate({ name, image_url, description, food_pairing, abv, brewers_tips }) {
 
+
     return (
         <div>
             <div className="beerTemplate">
