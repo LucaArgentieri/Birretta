@@ -42,4 +42,15 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
+@media (max-width: 900px) {
+  .beerTemplate {
+    margin: 20px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .beerTemplate img {
+    height: 300px;
+  }
+}
 /*# sourceMappingURL=beerTemplate.css.map */

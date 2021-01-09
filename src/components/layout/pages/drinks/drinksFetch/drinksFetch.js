@@ -9,7 +9,6 @@ export const useFetch = (url) => {
     const getData = useCallback(async () => {
         const response = await fetch(url)
         const beerData = await response.json()
-        console.log(beerData)
 
         setBeerData(beerData)
         setIsLoading(false)

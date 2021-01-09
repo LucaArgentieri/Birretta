@@ -27,3 +27,14 @@
   align-items: center;
   flex-direction: column;
 }
+
+@media (max-width: 900px) {
+  .beerTemplate {
+    margin: 20px;
+    grid-template-columns: 1fr;
+
+    img {
+      height: 300px;
+    }
+  }
+}

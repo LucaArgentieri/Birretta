@@ -10,6 +10,7 @@
 .beersContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin-top: 100px;
 }
@@ -29,4 +30,29 @@
     color: white;
     border-radius: 10px;
   }
+}
+
+.goUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  width: 50px;
+  background-color: #d96706;
+  color: white;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(#d96706, $amount: 7);
+  }
+}
+
+.puff {
+  display: none;
 }

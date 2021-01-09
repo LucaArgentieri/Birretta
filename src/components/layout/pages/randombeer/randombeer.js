@@ -21,14 +21,12 @@ function RandomBeer() {
     }
 
     return (
-        <div>
-            <div className="beersContainer">
-                {beerData.map((beer) => {
-                    return <BeerTemplate key={beer.id} {...beer} />
-                })
-                }
+        <div className="beersContainerSingle">
+            {beerData.map((beer) => {
+                return <BeerTemplate key={beer.id} {...beer} />
+            })
+            }
 
-            </div>
         </div>
     )
 }

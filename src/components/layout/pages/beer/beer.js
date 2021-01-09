@@ -11,6 +11,7 @@ export default function Beer() {
 
     let url = `https://api.punkapi.com/v2/beers/${id}`
 
+
     const { isLoading, beerData } = useFetch(url)
 
 
@@ -26,7 +27,7 @@ export default function Beer() {
 
 
     return (
-        <div>
+        <div className="beersContainerSingle">
             {beerData.map((beer) => {
                 return (
                     <div key={id} className="beerTemplate">

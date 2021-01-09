@@ -1,29 +1,13 @@
-.beerTemplate {
-  height: 70vh;
-  margin-right: 100px;
-  margin-left: 100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  img {
-    height: 500px;
-  }
-
-  h2 {
-    color: #d96706;
-  }
-
-  h3 {
-    color: #d96706;
-  }
-}
-
-.flex {
+.beersContainerSingle {
   display: flex;
-  flex-direction: column;
-}
-.flex_c {
-  display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+@media (max-width: 900px) {
+  .beersContainerSingle {
+    margin-top: 0px;
+    margin-bottom: 420px;
+  }
 }

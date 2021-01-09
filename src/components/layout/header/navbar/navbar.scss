@@ -1,0 +1,26 @@
+.navbar__container {
+  input {
+    width: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    ul {
+      padding: 0;
+    }
+
+    input {
+      width: inherit;
+    }
+
+    button {
+      margin-left: -20px;
+    }
+  }
+}

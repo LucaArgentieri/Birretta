@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './drink.css'
 import DrinksItem from './drinksItem/drinksItem'
 import { useFetch } from './drinksFetch/drinksFetch'
+import { BiUpArrowAlt } from 'react-icons/bi'
 
 
 function Drinks() {
@@ -25,6 +26,27 @@ function Drinks() {
         window.scrollTo(0, 0)
     }
 
+    const goUp = () => {
+        window.scrollTo(0, 0)
+    }
+
+    const checkScroll = () => {
+        const goUpClass = document.querySelector('.goUp')
+        goUpClass.classList.remove('puff')
+    }
+
+
+    useEffect(() => {
+
+        document.addEventListener('scroll', checkScroll)
+
+        return () => {
+            document.removeEventListener('scroll', checkScroll)
+        }
+
+    }, [])
+
+
 
 
     if (isLoading) {
@@ -39,7 +61,6 @@ function Drinks() {
         <div>
             <div className="beersContainer">
                 {beerData.map((beer) => {
-                    console.log(beer.id)
                     return <DrinksItem key={beer.id} {...beer} />
 
                 })
@@ -47,6 +68,10 @@ function Drinks() {
             </div>
             <div className="nextPage_container">
                 <button className="nextPage" onClick={() => newRender()}>Next page</button>
+            </div>
+
+            <div className="goUp puff" onClick={goUp}>
+                <BiUpArrowAlt size="25px" />
             </div>
         </div>
     )
