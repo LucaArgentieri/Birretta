@@ -54,6 +54,10 @@
   border-radius: 10px;
 }
 
+.nextPage_container .nextPage:hover {
+  background-color: #b65705;
+}
+
 .goUp {
   display: -webkit-box;
   display: -ms-flexbox;

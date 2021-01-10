@@ -29,6 +29,10 @@
     outline: none;
     color: white;
     border-radius: 10px;
+
+    &:hover {
+      background-color: darken(#d96706, $amount: 7);
+    }
   }
 }
 

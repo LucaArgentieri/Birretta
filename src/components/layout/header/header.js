@@ -11,6 +11,7 @@ import Home from '../pages/home/home';
 import Beers from '../pages/drinks/drinks';
 import RandomBeer from '../pages/randombeer/randombeer';
 import Beer from '../pages/beer/beer'
+import SearchResult from '../searchResult/searchResult'
 import Error from '../error/error';
 
 
@@ -30,6 +31,7 @@ function Header() {
           <RandomBeer />
         </Route>
         <Route path="/beer/:id" children={<Beer />}></Route>
+        <Route path="/search/:name" children={<SearchResult />}></Route>
         <Route path="*">
           <Error />
         </Route>

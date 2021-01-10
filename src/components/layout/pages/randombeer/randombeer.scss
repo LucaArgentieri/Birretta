@@ -1,0 +1,12 @@
+.reloadBtn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #d96706;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+  &:hover {
+    background-color: darken(#d96706, $amount: 7);
+  }
+}

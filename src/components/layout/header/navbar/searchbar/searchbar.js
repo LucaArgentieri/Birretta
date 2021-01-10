@@ -13,18 +13,14 @@ export default function Searchbar() {
 
         inpt.addEventListener('keyup', evt => {
             evt.preventDefault()
-            console.log(evt.target.value)
-            console.log(inputValue)
+
 
             return setInputValue(evt.target.value)
 
 
         })
 
-
     }
-
-    console.log(`This is ${inputValue}`)
 
 
 
@@ -33,12 +29,12 @@ export default function Searchbar() {
         <div className="navbar__container">
             <ul>
                 <li>
-                    <form >
+                    <form>
                         <input onKeyUp={() => alertInput()} type="text" />
                     </form>
                 </li>
                 <li>
-                    <Link to={inputValue}><FaSearch size='25px' /></Link>
+                    <Link to={`/search/${inputValue}`}><FaSearch size='25px' /></Link>
                 </li>
             </ul>
         </div>

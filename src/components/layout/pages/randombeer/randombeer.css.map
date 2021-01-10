@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,OAAO,EAAE,SAAS;EAClB,MAAM,EAAE,OAAO;EACf,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,KAAK;EACZ,aAAa,EAAE,IAAI;CAIpB;;AAXD,AAQE,UARQ,AAQP,MAAM,CAAC;EACN,gBAAgB,EAAE,OAA2B;CAC9C",
     "sources": [
         "randombeer.scss"
     ],

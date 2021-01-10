@@ -1,1 +1,14 @@
-/* No CSS *//*# sourceMappingURL=randombeer.css.map */
+.reloadBtn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #d96706;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.reloadBtn:hover {
+  background-color: #b65705;
+}
+/*# sourceMappingURL=randombeer.css.map */
